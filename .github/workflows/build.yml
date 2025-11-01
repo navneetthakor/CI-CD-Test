@@ -32,7 +32,7 @@ jobs:
 
       - name: Check Health Endpoint
         run: |
-          curl -f http://localhost:5000/signal | grep -q '"signal":"green"'
+          curl -f http://localhost:5002/ | grep -q '"signal":"green"'
       
       - name: Stop Server
         run: pkill node
