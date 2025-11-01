@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 // default routes
 app.get("/", (req, res) => res.json({ signal: "green" }));
 
-
+ 
 // -------------------------- Starting backend -----------------------------
 app.listen(port, () => {
   console.log("backend is listening at port no : ", port);
