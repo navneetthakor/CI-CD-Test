@@ -20,5 +20,19 @@ jobs:
       - name: Install Dependencies
         run: npm install
         
+      # build to check dependencies and code integrity
       - name: Run Build
         run: npm run build
+
+      # test endpoint to check if server is running properly
+      - name: Start Server
+        run: |
+          npm run start &
+          sleep 5
+
+      - name: Check Health Endpoint
+        run: |
+          curl -f http://localhost:5000/signal | grep -q '"signal":"green"'
+      
+      - name: Stop Server
+        run: pkill node
